@@ -1,0 +1,25 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  body {
+    margin: 0;
+    padding-left: max(24px, env(safe-area-inset-left));
+    padding-right: max(24px, env(safe-area-inset-right));
+    padding-bottom: env(safe-area-inset-bottom);
+  }
+
+  main {
+    grid-column: 2;
+  }
+}
+
+.main-grid {
+  @apply grid gap-6 grid-cols-[192px_640px_192px] lg:grid-cols-[auto_640px_auto];
+  @apply md:flex md:flex-col md:justify-start md:gap-4;
+}
