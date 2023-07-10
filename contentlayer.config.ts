@@ -21,11 +21,7 @@ const fields: FieldDefs = {
 const computedFields: ComputedFields = {
   slug: {
     type: 'string',
-    resolve: (doc) => `/${doc._raw.flattenedPath}`,
-  },
-  slugAsParams: {
-    type: 'string',
-    resolve: (doc) => doc._raw.flattenedPath.split('/').slice(1).join('/'),
+    resolve: (doc) => `/posts/${doc._raw.flattenedPath}`,
   },
 };
 

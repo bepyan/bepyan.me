@@ -11,7 +11,7 @@ export default function Home() {
           {allWritings.map((post, i) => {
             return (
               <div key={i}>
-                <Link href={`/${post._raw.flattenedPath}`}>{post.title}</Link>
+                <Link href={post.slug}>{post.title}</Link>
               </div>
             );
           })}
@@ -23,7 +23,7 @@ export default function Home() {
           {allNotes.map((post, i) => {
             return (
               <div key={i}>
-                <Link href={`/${post._raw.flattenedPath}`}>{post.title}</Link>
+                <Link href={post.slug}>{post.title}</Link>
               </div>
             );
           })}

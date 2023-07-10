@@ -1,4 +1,4 @@
-import { allDocuments, allWritings } from 'contentlayer/generated';
+import { allDocuments } from 'contentlayer/generated';
 import { format } from 'date-fns';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
@@ -21,7 +21,7 @@ function getDocFromParams({ params }: PageProps) {
 }
 
 export function generateStaticParams() {
-  return allWritings.map((post) => ({
+  return allDocuments.map((post) => ({
     slug: post._raw.flattenedPath.split('/'),
   }));
 }
@@ -48,7 +48,9 @@ export default async function WritingPage({ params }: PageProps) {
   return (
     <>
       <nav>
-        <Link href={`/${post.type.toLocaleLowerCase()}`}>{post.type}</Link>
+        <Link href={`/posts/${post.type.toLocaleLowerCase()}`}>
+          {post.type}
+        </Link>
       </nav>
       <main>
         <div className="mb-8">
