@@ -33,7 +33,7 @@ export default function RootLayout({
         )}
       >
         <div className="blur" aria-hidden="true"></div>
-        <div className="container mx-auto max-w-page pt-32">
+        <div className="container mx-auto max-w-page py-page">
           <div className="main-grid">{children}</div>
         </div>
       </body>
