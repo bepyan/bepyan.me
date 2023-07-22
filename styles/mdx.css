@@ -53,6 +53,10 @@
   counter-reset: line;
 }
 
+[data-line-numbers] > [data-line] {
+  @apply pl-2;
+}
+
 [data-line-numbers] > [data-line]::before {
   @apply inline-block mr-6 w-4 text-gray-9 text-right;
   counter-increment: line;
@@ -214,20 +218,28 @@ code[data-line-numbers-max-digits='3'] > [data-line]::before {
   @apply h-[1px] bg-gray-5 border-none;
 }
 
-.mdx tr {
-  @apply m-0 border-t p-0;
+.mdx table {
+  empty-cells: hide;
 }
 
 .mdx th {
-  @apply border px-4 py-2 text-left font-bold 
+  @apply px-4 pb-1 text-left font-semibold
     [&[align=center]]:text-center 
     [&[align=right]]:text-right;
 }
 
 .mdx td {
-  @apply border px-4 py-2 text-left 
+  @apply px-4 py-2 border-l align-text-top text-left
     [&[align=center]]:text-center 
     [&[align=right]]:text-right;
+}
+
+.mdx td:first-child {
+  word-break: keep-all;
+}
+
+.mdx td:last-child {
+  @apply border-r;
 }
 
 .mdx img {
