@@ -170,17 +170,16 @@ code[data-line-numbers-max-digits='3'] > [data-line]::before {
 }
 
 .mdx li {
-  display: list-item;
-  line-height: var(--leading);
+  @apply list-item leading-7;
 }
 
 .mdx li::marker {
-  color: var(--gray11);
+  @apply text-gray-11;
 }
 
 .mdx li + li,
 .mdx li > ul {
-  margin-top: var(--gap);
+  @apply mt-2;
 }
 
 .mdx ol {
@@ -197,18 +196,11 @@ code[data-line-numbers-max-digits='3'] > [data-line]::before {
 }
 
 .mdx ol li:before {
+  @apply inline-flex items-center justify-end text-gray-11 select-none text-right;
+  content: counter(basics-ol) '. ';
   counter-increment: basics-ol;
-  content: counter(basics-ol);
-  display: inline-flex;
-  align-items: center;
-  justify-content: flex-end;
-  text-align: right;
   min-width: var(--counter-space);
   margin-right: var(--counter-space);
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  user-select: none;
-  color: var(--gray11);
   font-feature-settings: 'tnum' 1;
   letter-spacing: -0.05em;
   line-height: normal;
