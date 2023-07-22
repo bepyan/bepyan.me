@@ -5,5 +5,11 @@
     "source.fixAll.eslint": true
   },
   "css.lint.unknownAtRules": "ignore",
-  "cSpell.words": ["Pretendard"]
+  "cSpell.words": ["Pretendard"],
+  "pasteImage.defaultName": "YYMMDD-HHmmss",
+  "pasteImage.basePath": "${projectRoot}/public",
+  "pasteImage.path": "${projectRoot}/public/img/${currentFileNameWithoutExt}",
+  "pasteImage.forceUnixStyleSeparator": true,
+  "pasteImage.insertPattern": "![${imageFileNameWithoutExt}](${imageFilePath})",
+  "pasteImage.prefix": "/"
 }
