@@ -45,23 +45,51 @@ draft: false
 
 ## 코드
 
-`inline code`
+`inline code` `[1, 2, 3]{:js}`
 
 ```
 Block code
 ```
 
-```js
-var foo = function (bar) {
-  return bar++;
-};
+```ts
+import clsx, { type ClassValue } from 'clsx';
+import { twMerge } from 'tailwind-merge';
 
-console.log(foo(5));
+export function cn(...inputs: ClassValue[]) {
+  return twMerge(clsx(inputs));
+}
 ```
 
-```ts
-export const cn = (classNames: ...any) => {
-    return classNames.filter(Boolean).join(' ');
+```tsx {3} title="layout.tsx" caption="가난한 별 이제 까닭이요, 벌레는 그 때 까닭이요, 버리었습니다." showLineNumbers /className/ /fontMono/#v /fontSans/#s /fontSerif/#i
+import '~/styles/globals.css';
+
+import type { Metadata } from 'next';
+
+import { fontMono, fontSans, fontSerif } from '~/libs/fonts';
+import { cn } from '~/libs/utils';
+
+export default function RootLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
+  return (
+    <html lang="ko" suppressHydrationWarning>
+      <body
+        className={cn(
+          'bg-background min-h-screen font-sans antialiased',
+          fontSans.variable,
+          fontSerif.variable,
+          fontMono.variable,
+        )}
+      >
+        <div className="blur" aria-hidden="true"></div>
+        <div className="container mx-auto max-w-page pt-32">
+          <div className="main-grid">{children}</div>
+        </div>
+      </body>
+    </html>
+  );
 }
 ```
 

@@ -168,60 +168,56 @@
     grid-column: 2;
   }
 
+  * {
+    @apply box-border border-gray-5;
+  }
+
   ::selection {
     @apply bg-black-A4 shadow-none decoration-gray-9;
   }
 
+  /* ---- scrollbar ---- */
   * {
-    @apply border-gray-5;
+    --scrollbar-size: 16px;
+    --scrollbar-size-min: 44px;
+    --scrollbar-color: var(--gray6);
+    /* firefox */
+    scrollbar-width: thin;
+    scrollbar-color: var(--scrollbar-color) transparent;
   }
-}
 
-/* ---- scrollbar ---- */
+  ::-webkit-scrollbar {
+    width: var(--scrollbar-size);
+    height: var(--scrollbar-size);
+  }
 
-/* * {
-  scrollbar-width: thin;
-  scrollbar-color: var(--mono5) transparent;
-}
+  ::-webkit-scrollbar-thumb {
+    min-height: var(--scrollbar-size-min);
+    min-width: var(--scrollbar-size-min);
+    background-color: var(--scrollbar-color);
+    border-radius: var(--scrollbar-size);
+    border: 5px solid transparent;
+    background-clip: padding-box;
+  }
 
-::-webkit-scrollbar {
-  width: var(--scrollbar-size);
-  height: var(--scrollbar-size);
-}
-
-::-webkit-scrollbar-thumb {
-  min-height: var(--scrollbar-size-min);
-  min-width: var(--scrollbar-size-min);
-  background-color: var(--scrollbar-color);
-  border-radius: var(--scrollbar-size);
-  border: 5px solid transparent;
-  background-clip: padding-box;
-}
-
-@media (hover: hover) {
   ::-webkit-scrollbar-thumb:hover {
-    --scrollbar-color: var(--mono7);
+    --scrollbar-color: var(--gray7);
+  }
+
+  ::-webkit-scrollbar-thumb:active {
+    --scrollbar-color: var(--gray8);
+  }
+
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  ::-webkit-scrollbar-button,
+  ::-webkit-scrollbar-corner,
+  ::-webkit-resizer {
+    display: none;
   }
 }
-
-::-webkit-scrollbar-thumb:active {
-  --scrollbar-color: var(--mono9);
-}
-
-::-webkit-scrollbar-track {
-  background: transparent;
-}
-
-::-webkit-scrollbar-button,
-::-webkit-scrollbar-corner {
-  display: none;
-}
-
-::-webkit-resizer {
-  display: none;
-} */
-
-/* ----  ---- */
 
 @layer components {
   .heading {

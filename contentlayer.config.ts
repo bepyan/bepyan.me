@@ -64,7 +64,12 @@ export default makeSource({
           rel: ['noopener noreferrer'],
         },
       ],
-      [rehypePrettyCode, {}],
+      [
+        rehypePrettyCode,
+        {
+          theme: 'css-variables',
+        },
+      ],
     ],
   },
 });
