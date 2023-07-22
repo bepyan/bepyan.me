@@ -1,0 +1,157 @@
+.mdx {
+  @apply w-full max-w-content text-tx;
+}
+
+.mdx > :not(:last-child),
+.mdx > [basics-codeblock] {
+  @apply mb-7;
+}
+
+.mdx > :where(h1, h2, h3, h4, h5, h6) {
+  @apply mt-14 mb-7 font-semibold text-lg leading-7;
+  /* font-feature-settings: 'kern', 'calt', 'case'; */
+}
+
+.mdx p {
+  @apply tracking-normal text-base leading-7;
+  /* font-feature-settings: 'kern', 'frac', 'kern', 'ss02'; */
+}
+
+.mdx b,
+.mdx strong {
+  @apply font-semibold;
+}
+
+.mdx em {
+  @apply font-serif;
+}
+
+.mdx del {
+  @apply text-gray-8;
+}
+
+.mdx a {
+  @apply relative
+    underline decoration-gray-8 decoration-1 underline-offset-[2.5px]
+    transition-[decoration-color] duration-xx ease-[ease]
+    hover:duration-fast hover:decoration-gray-11;
+}
+
+.mdx code:not(pre code) {
+  @apply relative rounded-md bg-gray-4 p-1 text-sm text-gray-12;
+}
+
+.mdx pre {
+  @apply relative m-0 px-4 py-3 rounded-lg overflow-x-auto
+    text-sm leading-6
+    bg-gray-3;
+  -moz-tab-size: 4;
+  -o-tab-size: 4;
+  tab-size: 4;
+}
+
+.mdx blockquote {
+  @apply relative text-gray-11 font-serif;
+  quotes: '“' '”' '‘' '’';
+  --quote-offset: 2px;
+}
+
+.mdx blockquote:before {
+  @apply absolute text-gray-11 -translate-x-full;
+  content: open-quote;
+  left: calc(-1 * var(--quote-offset));
+}
+
+.mdx blockquote :last-child:after {
+  content: close-quote;
+  margin-left: var(--quote-offset);
+}
+
+.mdx blockquote * {
+  @apply text-gray-11;
+}
+
+.mdx ul {
+  list-style-type: disc;
+  list-style-position: outside;
+  padding-left: 16px;
+}
+
+.mdx li > ul {
+  @apply list-[circle];
+}
+
+.mdx li {
+  display: list-item;
+  line-height: var(--leading);
+}
+
+.mdx li::marker {
+  color: var(--gray11);
+}
+
+.mdx li + li,
+.mdx li > ul {
+  margin-top: var(--gap);
+}
+
+.mdx ol {
+  --counter-space: 12px;
+  counter-reset: basics-ol;
+  list-style-type: none;
+  padding: 0;
+}
+
+.mdx ol li {
+  --l: calc(2 * var(--counter-space));
+  text-indent: calc(-1 * var(--l));
+  padding-left: var(--l);
+}
+
+.mdx ol li:before {
+  counter-increment: basics-ol;
+  content: counter(basics-ol);
+  display: inline-flex;
+  align-items: center;
+  justify-content: flex-end;
+  text-align: right;
+  min-width: var(--counter-space);
+  margin-right: var(--counter-space);
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+  color: var(--gray11);
+  font-feature-settings: 'tnum' 1;
+  letter-spacing: -0.05em;
+  line-height: normal;
+}
+
+.mdx hr {
+  @apply h-[1px] bg-gray-5 border-none;
+}
+
+.mdx tr {
+  @apply m-0 border-t p-0;
+}
+
+.mdx th {
+  @apply border px-4 py-2 text-left font-bold 
+    [&[align=center]]:text-center 
+    [&[align=right]]:text-right;
+}
+
+.mdx td {
+  @apply border px-4 py-2 text-left 
+    [&[align=center]]:text-center 
+    [&[align=right]]:text-right;
+}
+
+.mdx img {
+  @apply overflow-hidden flex rounded-md;
+  font-size: 0;
+  filter: drop-shadow(0 25px 20px rgba(0, 0, 0, 0.1));
+}
+
+.mdx img + em {
+  @apply inline-block text-sm leading-5 text-gray-11 mt-4 not-italic;
+}

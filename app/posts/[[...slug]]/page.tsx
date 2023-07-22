@@ -1,7 +1,11 @@
+import '~/styles/mdx.css';
+
 import { allDocuments } from 'contentlayer/generated';
 import { format } from 'date-fns';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
+
+import { Mdx } from '~/components/mdx-components';
 
 interface PageProps {
   params: {
@@ -13,10 +17,6 @@ function getDocFromParams({ params }: PageProps) {
   const slug = params.slug?.join('/') || '';
   const post = allDocuments.find((doc) => doc._raw.flattenedPath === slug);
 
-  if (!post) {
-    throw new Error(`Post not found for slug: ${params.slug}`);
-  }
-
   return post;
 }
 
@@ -26,7 +26,7 @@ export function generateStaticParams() {
   }));
 }
 
-export async function generateMetadata({ params }: PageProps) {
+export function generateMetadata({ params }: PageProps) {
   const post = getDocFromParams({ params });
 
   if (!post) {
@@ -38,26 +38,28 @@ export async function generateMetadata({ params }: PageProps) {
   };
 }
 
-export default async function WritingPage({ params }: PageProps) {
-  const post = await getDocFromParams({ params });
+export default function WritingPage({ params }: PageProps) {
+  const post = getDocFromParams({ params });
 
   if (!post) {
-    return notFound();
+    notFound();
   }
 
   return (
     <>
-      <nav>
+      <nav className="font-serif italic">
         <Link href={`/posts/${post.type.toLocaleLowerCase()}`}>
           {post.type}
         </Link>
       </nav>
       <main>
-        <div className="mb-8">
-          <h1 className="font-medium">{post.title}</h1>
-          <time className="">{format(new Date(post.date), 'yyyy.MM.dd')}</time>
+        <div className="mb-10">
+          <h1 className="font-semibold leading-7">{post.title}</h1>
+          <time className="text-gray-11">
+            {format(new Date(post.date), 'yyyy.MM.dd')}
+          </time>
         </div>
-        <article dangerouslySetInnerHTML={{ __html: post.body.html }} />
+        <Mdx code={post.body.code} />
       </main>
     </>
   );

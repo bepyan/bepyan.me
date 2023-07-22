@@ -28,6 +28,7 @@ const computedFields: ComputedFields = {
 export const Writing = defineDocumentType(() => ({
   name: 'Writing',
   filePathPattern: `writing/**/*.mdx`,
+  contentType: 'mdx',
   fields,
   computedFields,
 }));
@@ -35,6 +36,7 @@ export const Writing = defineDocumentType(() => ({
 export const Note = defineDocumentType(() => ({
   name: 'Note',
   filePathPattern: `note/**/*.mdx`,
+  contentType: 'mdx',
   fields,
   computedFields,
 }));

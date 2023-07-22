@@ -2,11 +2,11 @@ import '~/styles/globals.css';
 
 import type { Metadata } from 'next';
 
-import { fontSans } from '~/libs/fonts';
+import { fontMono, fontSans, fontSansVariable, fontSerif } from '~/libs/fonts';
 import { cn } from '~/libs/utils';
 
 export const metadata: Metadata = {
-  title: 'bepyan',
+  title: 'bepyan.me',
   description: 'Frontend Developer at Kakao, developing Brunch.',
 
   icons: {
@@ -26,7 +26,10 @@ export default function RootLayout({
       <body
         className={cn(
           'bg-background min-h-screen font-sans antialiased',
+          fontSansVariable.variable,
           fontSans.variable,
+          fontSerif.variable,
+          fontMono.variable,
         )}
       >
         <div className="blur" aria-hidden="true"></div>

@@ -4,7 +4,7 @@ import Link from 'next/link';
 export default function Home() {
   return (
     <main>
-      <h1>bepyan</h1>
+      <h1>김평안</h1>
       <div>
         <div className="mt-4">
           <h2>writing</h2>
@@ -17,7 +17,7 @@ export default function Home() {
           })}
         </div>
 
-        <div className="mt-4">
+        <div className="mt-4 text-gray-9">
           <h2>note</h2>
 
           {allNotes.map((post, i) => {

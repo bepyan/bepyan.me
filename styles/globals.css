@@ -2,9 +2,154 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+  --font-fallback: -apple-system, 'BlinkMacSystemFont', 'system-ui', 'Roboto',
+    'Helvetica Neue', 'Segoe UI', 'Apple SD Gothic Neo', 'Noto Sans KR',
+    'Malgun Gothic', 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol',
+    sans-serif;
+  --kerning-l: -0.33px;
+  --shadow-s: 0 2px 20px 1px var(--shadow-color);
+  --noise-1: url("data:image/svg+xml,%3Csvg viewBox='0 0 1024 1024' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.25' numOctaves='1' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+  --scrollbar-size: 16px;
+  --scrollbar-size-min: 44px;
+  --scrollbar-color: var(--mono6);
+  --transparent: transparent;
+  --transparent-white: hsla(0, 0%, 100%, 0);
+  --mask-vertical: linear-gradient(
+    to bottom,
+    var(--mask-hidden) 0px,
+    var(--mask-visible) var(--mask-size),
+    var(--mask-visible) calc(100% - var(--mask-size)),
+    var(--mask-hidden) 100%
+  );
+  --mask-visible: #000;
+  --mask-hidden: transparent;
+  --mask-invisible: transparent;
+  --ease-in-quad: cubic-bezier(0.55, 0.085, 0.68, 0.53);
+  --ease-in-cubic: cubic-bezier(0.55, 0.055, 0.675, 0.19);
+  --ease-in-quart: cubic-bezier(0.895, 0.03, 0.685, 0.22);
+  --ease-in-quint: cubic-bezier(0.755, 0.05, 0.855, 0.06);
+  --ease-in-expo: cubic-bezier(0.95, 0.05, 0.795, 0.035);
+  --ease-in-circ: cubic-bezier(0.6, 0.04, 0.98, 0.335);
+  --ease-out-quad: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  --ease-out-cubic: cubic-bezier(0.215, 0.61, 0.355, 1);
+  --ease-out-quart: cubic-bezier(0.165, 0.84, 0.44, 1);
+  --ease-out-quint: cubic-bezier(0.23, 1, 0.32, 1);
+  --ease-out-expo: cubic-bezier(0.19, 1, 0.22, 1);
+  --ease-out-circ: cubic-bezier(0.075, 0.82, 0.165, 1);
+  --ease-in-out-quad: cubic-bezier(0.455, 0.03, 0.515, 0.955);
+  --ease-in-out-cubic: cubic-bezier(0.645, 0.045, 0.355, 1);
+  --ease-in-out-quart: cubic-bezier(0.77, 0, 0.175, 1);
+  --ease-in-out-quint: cubic-bezier(0.86, 0, 0.07, 1);
+  --ease-in-out-expo: cubic-bezier(1, 0, 0, 1);
+  --ease-in-out-circ: cubic-bezier(0.785, 0.135, 0.15, 0.86);
+}
+
+/* color palette */
+@layer base {
+  :root {
+    color-scheme: light;
+    --fg: var(--gray12);
+    --bg: var(--white);
+    --text-color: #3a3a3a;
+    --alpha: hsla(0, 0%, 100%, 0.9);
+    --shadow-color: hsla(0, 6%, 6%, 0.05);
+    --indigo: #5856d6;
+    --gray1: #fcfcfc;
+    --gray2: #f8f8f8;
+    --gray3: #f3f3f3;
+    --gray4: #ededed;
+    --gray5: #e8e8e8;
+    --gray6: #e2e2e2;
+    --gray7: #dbdbdb;
+    --gray8: #c7c7c7;
+    --gray9: #8f8f8f;
+    --gray10: #858585;
+    --gray11: #6f6f6f;
+    --gray12: #171717;
+    --blackA1: rgba(0, 0, 0, 0.012);
+    --blackA2: rgba(0, 0, 0, 0.027);
+    --blackA3: rgba(0, 0, 0, 0.047);
+    --blackA4: rgba(0, 0, 0, 0.071);
+    --blackA5: rgba(0, 0, 0, 0.09);
+    --blackA6: rgba(0, 0, 0, 0.114);
+    --blackA7: rgba(0, 0, 0, 0.141);
+    --blackA8: rgba(0, 0, 0, 0.22);
+    --blackA9: rgba(0, 0, 0, 0.439);
+    --blackA10: rgba(0, 0, 0, 0.478);
+    --blackA11: rgba(0, 0, 0, 0.565);
+    --blackA12: rgba(0, 0, 0, 0.91);
+  }
+
+  .dark {
+    color-scheme: dark;
+    --fg: #f2f2f2;
+    --bg: var(--gray1);
+    --base: #e5e5e5;
+    --alpha: rgba(28, 28, 28, 0.9);
+    --shadow-color: rgba(0, 0, 0, 0.55);
+    --indigo: #5e5ce6;
+    --gray1: #1a1a1a;
+    --gray2: #1c1c1c;
+    --gray3: #232323;
+    --gray4: #282828;
+    --gray5: #2e2e2e;
+    --gray6: #343434;
+    --gray7: #3e3e3e;
+    --gray8: #505050;
+    --gray9: #707070;
+    --gray10: #7e7e7e;
+    --gray11: #a0a0a0;
+    --gray12: #ededed;
+    --blackA1: hsla(0, 0%, 100%, 0);
+    --blackA2: hsla(0, 0%, 100%, 0.026);
+    --blackA3: hsla(0, 0%, 100%, 0.056);
+    --blackA4: hsla(0, 0%, 100%, 0.077);
+    --blackA5: hsla(0, 0%, 100%, 0.103);
+    --blackA6: hsla(0, 0%, 100%, 0.129);
+    --blackA7: hsla(0, 0%, 100%, 0.172);
+    --blackA8: hsla(0, 0%, 100%, 0.249);
+    --blackA9: hsla(0, 0%, 100%, 0.386);
+    --blackA10: hsla(0, 0%, 100%, 0.446);
+    --blackA11: hsla(0, 0%, 100%, 0.592);
+    --blackA12: hsla(0, 0%, 100%, 0.923);
+  }
+}
+
+/* layout */
+@layout base {
+  :root {
+    --page-width: 1072px;
+    --content-width: 640px;
+    --page-left: auto;
+    --page-top: 128px;
+    --header-height: 48px;
+    --footer-height: 48px;
+    --icon-primary: var(--mono11);
+    --icon-secondary: transparent;
+    --layer-above-sticky: 20;
+    --layer-header: 10;
+    --layer-sticky: 10;
+  }
+
+  @media (max-width: 1024px) {
+    :root {
+      --page-top: 128px;
+    }
+  }
+
+  @media (max-width: 768px) {
+    :root {
+      --page-top: 64px;
+    }
+  }
+}
+
 @layer base {
   html {
     -webkit-tap-highlight-color: transparent;
+    scroll-padding-top: calc(var(--header-height) + var(--gap-2x));
+    font-size: 16px;
   }
 
   body {
@@ -14,12 +159,72 @@
     padding-bottom: env(safe-area-inset-bottom);
   }
 
-  main {
+  .main-grid {
+    @apply grid gap-6 grid-cols-[192px_640px_192px] lg:grid-cols-[auto_640px_auto];
+    @apply md:flex md:flex-col md:justify-start md:gap-4;
+  }
+
+  .main-grid main {
     grid-column: 2;
+  }
+
+  ::selection {
+    @apply bg-black-A4 shadow-none decoration-gray-9;
+  }
+
+  * {
+    @apply border-gray-5;
   }
 }
 
-.main-grid {
-  @apply grid gap-6 grid-cols-[192px_640px_192px] lg:grid-cols-[auto_640px_auto];
-  @apply md:flex md:flex-col md:justify-start md:gap-4;
+/* ---- scrollbar ---- */
+
+/* * {
+  scrollbar-width: thin;
+  scrollbar-color: var(--mono5) transparent;
+}
+
+::-webkit-scrollbar {
+  width: var(--scrollbar-size);
+  height: var(--scrollbar-size);
+}
+
+::-webkit-scrollbar-thumb {
+  min-height: var(--scrollbar-size-min);
+  min-width: var(--scrollbar-size-min);
+  background-color: var(--scrollbar-color);
+  border-radius: var(--scrollbar-size);
+  border: 5px solid transparent;
+  background-clip: padding-box;
+}
+
+@media (hover: hover) {
+  ::-webkit-scrollbar-thumb:hover {
+    --scrollbar-color: var(--mono7);
+  }
+}
+
+::-webkit-scrollbar-thumb:active {
+  --scrollbar-color: var(--mono9);
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-button,
+::-webkit-scrollbar-corner {
+  display: none;
+}
+
+::-webkit-resizer {
+  display: none;
+} */
+
+/* ----  ---- */
+
+@layer components {
+  .heading {
+    @apply font-medium text-base leading-7 font-sans;
+  }
 }
