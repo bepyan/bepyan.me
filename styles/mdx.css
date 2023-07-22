@@ -236,11 +236,14 @@ code[data-line-numbers-max-digits='3'] > [data-line]::before {
 
 .mdx img {
   @apply overflow-hidden flex rounded-md;
-  font-size: 0;
-  filter: drop-shadow(0 25px 20px rgba(0, 0, 0, 0.1));
 }
 
 .mdx img + em,
 .mdx img + em p {
   @apply inline-block mt-1 text-sm leading-5 text-gray-11 font-sans not-italic;
+}
+
+.mdx img,
+.medium-zoom-image--opened {
+  filter: drop-shadow(0 25px 20px rgba(0, 0, 0, 0.1));
 }

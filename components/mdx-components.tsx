@@ -4,6 +4,8 @@ import { useMDXComponent } from 'next-contentlayer/hooks';
 
 import { cn } from '~/libs/utils';
 
+import ZoomImage from './zoom-image';
+
 const components: MDXComponents = {
   hr: ({ ...props }: React.HTMLAttributes<HTMLHRElement>) => (
     <hr aria-orientation="horizontal" {...props} />
@@ -13,6 +15,7 @@ const components: MDXComponents = {
       <table className={cn('w-full', className)} {...props} />
     </div>
   ),
+  img: ZoomImage,
 };
 
 export function Mdx({ code }: { code: string }) {
