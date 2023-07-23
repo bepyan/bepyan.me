@@ -134,8 +134,8 @@ code[data-line-numbers-max-digits='3'] > [data-line]::before {
 .mdx a {
   @apply relative
     underline decoration-gray-8 decoration-1 underline-offset-[2.5px]
-    transition-[decoration-color] duration-xx ease-[ease]
-    hover:duration-fast hover:decoration-gray-11;
+    transition-[color,text-decoration-color] duration-xx ease-[ease]
+    hover:duration-fast hover:text-tx hover:decoration-gray-9;
 }
 
 .mdx blockquote {
