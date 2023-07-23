@@ -105,7 +105,7 @@ code[data-line-numbers-max-digits='3'] > [data-line]::before {
 
 .mdx .anchor {
   @apply absolute -ml-10 mt-[3px] flex h-5 w-5 items-center justify-center
-    rounded-md border-none no-underline ring-1 ring-gray-7
+    rounded-md border-none no-underline ring-1 ring-gray-7 bg-transparent
     opacity-0 transition-[opacity] hover:opacity-100 hover:shadow;
 }
 
@@ -133,7 +133,7 @@ code[data-line-numbers-max-digits='3'] > [data-line]::before {
 }
 
 .mdx > :where(h1, h2, h3, h4, h5, h6) {
-  @apply mt-14 scroll-mt-14 mb-7 font-semibold text-base leading-7;
+  @apply scroll-mt-page mt-14 mb-7 font-semibold text-base leading-7;
   /* font-feature-settings: 'kern', 'calt', 'case'; */
 }
 
