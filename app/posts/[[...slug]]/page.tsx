@@ -47,7 +47,7 @@ export default function WritingPage({ params }: PageProps) {
 
   return (
     <>
-      <nav className="font-serif italic">
+      <nav className="sticky top-page font-serif italic lg:relative lg:top-0">
         <Link href={`/posts/${post.type.toLocaleLowerCase()}`}>
           {post.type}
         </Link>

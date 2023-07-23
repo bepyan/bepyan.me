@@ -32,7 +32,7 @@ export default function RootLayout({
           fontMono.variable,
         )}
       >
-        <div className="blur" aria-hidden="true"></div>
+        <div className="blur-layer" aria-hidden="true"></div>
         <div className="container mx-auto max-w-page py-page">
           <div className="main-grid">{children}</div>
         </div>

@@ -86,7 +86,7 @@ module.exports = {
         long: '480ms',
         slow: '1200ms',
       },
-      padding: {
+      spacing: {
         page: 'var(--page-top)',
       },
     },
