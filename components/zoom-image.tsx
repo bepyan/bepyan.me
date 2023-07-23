@@ -12,7 +12,7 @@ export default function ZoomImage({ options, ...props }: ImageZoomProps) {
     if (zoomRef.current === null) {
       zoomRef.current = mediumZoom({
         ...options,
-        background: 'var(--blackA10)',
+        background: 'var(--bg)',
       });
     }
 

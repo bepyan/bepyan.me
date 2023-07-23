@@ -271,3 +271,8 @@ code[data-line-numbers-max-digits='3'] > [data-line]::before {
 .medium-zoom-image--opened {
   filter: drop-shadow(0 25px 20px rgba(0, 0, 0, 0.1));
 }
+
+.medium-zoom-overlay,
+.medium-zoom-image--opened {
+  z-index: 1000;
+}
