@@ -6,7 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "prettier": "prettier --write '**/*.{mjs,cjs,js,ts,tsx,css}' "
   },
   "pnpm": {
     "//": "@see https://github.com/contentlayerdev/contentlayer/issues/506",
@@ -41,10 +42,10 @@
     "eslint": "8.44.0",
     "eslint-config-next": "13.4.9",
     "eslint-plugin-simple-import-sort": "^10.0.0",
-    "eslint-plugin-tailwindcss": "^3.13.0",
     "next-contentlayer": "^0.3.4",
     "postcss": "8.4.25",
     "prettier": "^3.0.0",
+    "prettier-plugin-tailwindcss": "^0.4.1",
     "rehype-autolink-headings": "^6.1.1",
     "rehype-external-links": "^2.1.0",
     "rehype-pretty-code": "^0.10.0",

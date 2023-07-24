@@ -17,13 +17,13 @@
 /* code */
 
 .mdx code:not(pre code) {
-  @apply relative rounded-md p-1 text-sm text-gray-12 bg-gray-3;
+  @apply relative rounded-md bg-gray-3 p-1 text-sm text-gray-12;
 }
 
 .mdx pre {
-  @apply relative grid m-0 px-4 py-3 rounded-lg overflow-x-auto
-    text-sm leading-6
-    bg-gray-3;
+  @apply relative m-0 grid overflow-x-auto rounded-lg bg-gray-3 px-4
+    py-3 text-sm
+    leading-6;
   -moz-tab-size: 4;
   -o-tab-size: 4;
   tab-size: 4;
@@ -34,15 +34,15 @@
 }
 
 [data-rehype-pretty-code-title] {
-  @apply text-sm text-gray-11 mb-1;
+  @apply mb-1 text-sm text-gray-11;
 }
 
 [data-rehype-pretty-code-caption] {
-  @apply text-sm text-gray-11 mt-1;
+  @apply mt-1 text-sm text-gray-11;
 }
 
 [data-line] {
-  @apply inline-block px-4 w-full;
+  @apply inline-block w-full px-4;
 }
 
 [data-highlighted-line] {
@@ -58,7 +58,7 @@
 }
 
 [data-line-numbers] > [data-line]::before {
-  @apply inline-block mr-6 w-4 text-gray-9 text-right;
+  @apply mr-6 inline-block w-4 text-right text-gray-9;
   counter-increment: line;
   content: counter(line);
 }
@@ -72,7 +72,7 @@ code[data-line-numbers-max-digits='3'] > [data-line]::before {
 }
 
 [data-highlighted-chars] {
-  @apply rounded-md px-1 shadow bg-black-A4;
+  @apply rounded-md bg-black-A4 px-1 shadow;
 }
 
 [data-chars-id] {
@@ -105,8 +105,8 @@ code[data-line-numbers-max-digits='3'] > [data-line]::before {
 
 .mdx .anchor {
   @apply absolute -ml-10 mt-[3px] flex h-5 w-5 items-center justify-center
-    rounded-md border-none no-underline ring-1 ring-gray-7 bg-transparent
-    opacity-0 transition-[opacity] hover:opacity-100 hover:shadow;
+    rounded-md border-none bg-transparent no-underline opacity-0 ring-1
+    ring-gray-7 transition-[opacity] hover:opacity-100 hover:shadow;
 }
 
 .mdx .anchor:after {
@@ -133,12 +133,12 @@ code[data-line-numbers-max-digits='3'] > [data-line]::before {
 }
 
 .mdx > :where(h1, h2, h3, h4, h5, h6) {
-  @apply scroll-mt-page mt-14 mb-7 font-semibold text-base leading-7;
+  @apply mb-7 mt-14 scroll-mt-page text-base font-semibold leading-7;
   /* font-feature-settings: 'kern', 'calt', 'case'; */
 }
 
 .mdx p {
-  @apply tracking-normal text-base leading-7;
+  @apply text-base leading-7 tracking-normal;
   /* font-feature-settings: 'kern', 'frac', 'kern', 'ss02'; */
 }
 
@@ -159,17 +159,17 @@ code[data-line-numbers-max-digits='3'] > [data-line]::before {
   @apply relative
     underline decoration-gray-8 decoration-1 underline-offset-[2.5px]
     transition-[color,text-decoration-color] duration-xx ease-[ease]
-    hover:duration-fast hover:text-tx hover:decoration-gray-9;
+    hover:text-tx hover:decoration-gray-9 hover:duration-fast;
 }
 
 .mdx blockquote {
-  @apply relative text-gray-11 font-serif;
+  @apply relative font-serif text-gray-11;
   quotes: '“' '”' '‘' '’';
   --quote-offset: 2px;
 }
 
 .mdx blockquote:before {
-  @apply absolute text-gray-11 -translate-x-full;
+  @apply absolute -translate-x-full text-gray-11;
   content: open-quote;
   left: calc(-1 * var(--quote-offset));
 }
@@ -220,7 +220,7 @@ code[data-line-numbers-max-digits='3'] > [data-line]::before {
 }
 
 .mdx ol li:before {
-  @apply inline-flex items-center justify-end text-gray-11 select-none text-right;
+  @apply inline-flex select-none items-center justify-end text-right text-gray-11;
   content: counter(basics-ol) '. ';
   counter-increment: basics-ol;
   min-width: var(--counter-space);
@@ -231,7 +231,7 @@ code[data-line-numbers-max-digits='3'] > [data-line]::before {
 }
 
 .mdx hr {
-  @apply h-[1px] bg-gray-5 border-none;
+  @apply h-[1px] border-none bg-gray-5;
 }
 
 .mdx table {
@@ -245,7 +245,7 @@ code[data-line-numbers-max-digits='3'] > [data-line]::before {
 }
 
 .mdx td {
-  @apply px-4 py-2 border-l align-text-top text-left
+  @apply border-l px-4 py-2 text-left align-text-top
     [&[align=center]]:text-center 
     [&[align=right]]:text-right;
 }
@@ -259,12 +259,12 @@ code[data-line-numbers-max-digits='3'] > [data-line]::before {
 }
 
 .mdx img {
-  @apply overflow-hidden flex rounded-md;
+  @apply flex overflow-hidden rounded-md;
 }
 
 .mdx img + em,
 .mdx img + em p {
-  @apply inline-block mt-1 text-sm leading-5 text-gray-11 font-sans not-italic;
+  @apply mt-1 inline-block font-sans text-sm not-italic leading-5 text-gray-11;
 }
 
 .mdx img,

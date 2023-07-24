@@ -135,7 +135,7 @@
   }
 
   body {
-    @apply m-0 min-h-screen font-sans antialiased bg-bg text-fg;
+    @apply m-0 min-h-screen bg-bg font-sans text-fg antialiased;
     --body-margin-left: max(24px, env(safe-area-inset-left));
     --body-margin-right: max(24px, env(safe-area-inset-right));
     padding-left: var(--body-margin-left);
@@ -148,7 +148,7 @@
   }
 
   ::selection {
-    @apply bg-black-A4 shadow-none decoration-gray-9;
+    @apply bg-black-A4 decoration-gray-9 shadow-none;
   }
 
   /* ---- scrollbar ---- */
@@ -196,7 +196,7 @@
 
 @layer components {
   .main-grid {
-    @apply grid items-start gap-6 grid-cols-[192px_640px_192px] lg:grid-cols-[auto_640px_auto]
+    @apply grid grid-cols-[192px_640px_192px] items-start gap-6 lg:grid-cols-[auto_640px_auto]
       md:flex md:flex-col md:justify-start md:gap-8;
   }
 

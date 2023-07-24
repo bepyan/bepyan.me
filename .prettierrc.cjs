@@ -8,4 +8,7 @@ module.exports = {
   printWidth: 80,
   arrowParens: 'always',
   bracketSpacing: true,
+
+  plugins: ['prettier-plugin-tailwindcss'],
+  tailwindFunctions: ['cn', 'cva'],
 };
