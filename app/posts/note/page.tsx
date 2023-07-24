@@ -1,12 +1,12 @@
 import { allNotes } from 'contentlayer/generated';
 import Link from 'next/link';
 
+import NavHeader from '~/components/nav-header';
+
 export default function NotePage() {
   return (
     <>
-      <nav>
-        <Link href="/">Index</Link>
-      </nav>
+      <NavHeader href="/" />
       <main>
         <h2>note</h2>
 

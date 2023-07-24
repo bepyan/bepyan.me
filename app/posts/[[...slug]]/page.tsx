@@ -2,10 +2,10 @@ import '~/styles/mdx.css';
 
 import { allDocuments } from 'contentlayer/generated';
 import { format } from 'date-fns';
-import Link from 'next/link';
 import { notFound } from 'next/navigation';
 
 import { Mdx } from '~/components/mdx-components';
+import NavHeader from '~/components/nav-header';
 
 interface PageProps {
   params: {
@@ -47,11 +47,7 @@ export default function WritingPage({ params }: PageProps) {
 
   return (
     <>
-      <nav className="sticky top-page font-serif italic lg:relative lg:top-0">
-        <Link href={`/posts/${post.type.toLocaleLowerCase()}`}>
-          {post.type}
-        </Link>
-      </nav>
+      <NavHeader href={`/posts/${post.type.toLocaleLowerCase()}`} />
       <main>
         <div className="mb-10">
           <h1 className="font-semibold leading-7">{post.title}</h1>
