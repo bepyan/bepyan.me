@@ -51,8 +51,8 @@ export default function WritingPage({ params }: PageProps) {
       <main>
         <div className="mb-10">
           <h1 className="font-semibold leading-7">{post.title}</h1>
-          <time className="text-gray-11">
-            {format(new Date(post.date), 'yyyy.MM.dd')}
+          <time className="text-sm text-gray-11">
+            {format(new Date(post.date), 'MMMM dd. yyyy')}
           </time>
         </div>
         <Mdx code={post.body.code} />
