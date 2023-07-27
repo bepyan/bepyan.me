@@ -3,7 +3,6 @@ import { format } from 'date-fns';
 import Link from 'next/link';
 
 import NavHeader from '~/components/nav-header';
-import { cn } from '~/libs/utils';
 
 export default function WritingPage() {
   return (
@@ -40,18 +39,11 @@ export default function WritingPage() {
                         <Link
                           href={post.slug}
                           key={i}
-                          className="group/item flex"
+                          className="group/item flex transition-opacity hover:!opacity-100 group-hover:opacity-40"
                         >
                           <div className="ml-[20%] flex flex-1 border-t py-3 group-first-of-type/item:border-t-0">
-                            <span className="text-gray-12 transition-colors group-hover/item:text-gray-12 group-hover:text-gray-10">
-                              {post.title}
-                            </span>
-                            <span
-                              className={cn(
-                                'ml-auto flex-shrink-0 px-2 text-sm',
-                                'text-gray-9 transition-colors group-hover/item:text-gray-9 group-hover:text-gray-7',
-                              )}
-                            >
+                            <span className="text-gray-12">{post.title}</span>
+                            <span className="ml-auto flex-shrink-0 px-2 text-sm text-gray-9">
                               {format(new Date(post.date), 'MM. dd.')}
                             </span>
                           </div>
