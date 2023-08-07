@@ -26,8 +26,8 @@ export default function NavHeader({
         href={href}
         className="inline-flex select-none items-center gap-2 text-gray-11 transition-colors hover:text-gray-12"
       >
-        <UndoIcon />
-        {heading}
+        <UndoIcon className="shrink-0" />
+        <span>{heading}</span>
       </Link>
       {children}
     </nav>
