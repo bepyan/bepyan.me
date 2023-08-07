@@ -1,10 +1,10 @@
 'use client';
 import type { MDXComponents } from 'mdx/types';
+import mediumZoom from 'medium-zoom';
 import { useMDXComponent } from 'next-contentlayer/hooks';
+import { useEffect } from 'react';
 
 import { cn } from '~/libs/utils';
-
-import ZoomImage from './zoom-image';
 
 const components: MDXComponents = {
   hr: ({ ...props }: React.HTMLAttributes<HTMLHRElement>) => (
@@ -15,11 +15,20 @@ const components: MDXComponents = {
       <table className={cn('w-full', className)} {...props} />
     </div>
   ),
-  img: ZoomImage,
 };
 
 export function Mdx({ code }: { code: string }) {
   const MDXContent = useMDXComponent(code);
+
+  useEffect(() => {
+    const zoom = mediumZoom('.mdx img', {
+      background: 'var(--bg)',
+    });
+
+    return () => {
+      zoom.detach();
+    };
+  }, []);
 
   return (
     <article className="mdx">
