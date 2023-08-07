@@ -168,7 +168,7 @@ code[data-line-numbers-max-digits='3'] > [data-line]::before {
 }
 
 .mdx a {
-  @apply relative
+  @apply relative break-all
     underline decoration-gray-8 decoration-1 underline-offset-[2.5px]
     transition-[color,text-decoration-color] duration-xx ease-[ease]
     hover:text-tx hover:decoration-gray-9 hover:duration-fast;
