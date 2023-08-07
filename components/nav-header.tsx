@@ -21,13 +21,13 @@ export default function NavHeader({
   }, [href]);
 
   return (
-    <nav className="sticky top-page font-serif leading-7 lg:relative lg:top-0">
+    <nav className="sticky top-page font-serif leading-7 md:relative md:top-0">
       <Link
         href={href}
-        className="inline-flex select-none items-center gap-2 text-gray-11 transition-colors hover:text-gray-12"
+        className="inline-flex select-none items-start gap-2 text-gray-11 transition-colors hover:text-gray-12"
       >
-        <UndoIcon className="shrink-0" />
-        <span>{heading}</span>
+        <UndoIcon className="mt-1.5 shrink-0" />
+        <span className="">{heading}</span>
       </Link>
       {children}
     </nav>

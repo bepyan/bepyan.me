@@ -257,6 +257,7 @@ code[data-line-numbers-max-digits='3'] > [data-line]::before {
 
 .mdx table {
   empty-cells: hide;
+  @apply md:text-sm;
 }
 
 .mdx th {

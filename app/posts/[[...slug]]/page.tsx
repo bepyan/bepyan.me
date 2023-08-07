@@ -103,7 +103,7 @@ export default function WritingPage({ params }: PageProps) {
         </div>
         <Mdx code={post.body.code} />
         <hr className="mb-10 mt-20 h-[1px] w-full border-gray-5" />
-        <footer className="flex items-stretch justify-between text-sm text-tx">
+        <footer className="flex items-stretch justify-between gap-1 text-sm text-tx">
           {!!prevPost && (
             <Link className="flex flex-col gap-1" href={prevPost.href}>
               <div className="text-gray-10">Previous</div>
