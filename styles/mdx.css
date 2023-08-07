@@ -17,11 +17,11 @@
 /* code */
 
 .mdx code:not(pre code) {
-  @apply relative rounded-md bg-gray-3 p-1 text-sm text-gray-12;
+  @apply relative rounded-md bg-gray-3 px-1.5 py-1 text-sm text-gray-12;
 }
 
 .mdx pre {
-  @apply relative m-0 grid overflow-x-auto rounded-lg bg-gray-3 px-4
+  @apply relative grid overflow-x-auto rounded-lg bg-gray-3 px-4
     py-3 text-sm
     leading-6;
   -moz-tab-size: 4;
@@ -127,14 +127,29 @@ code[data-line-numbers-max-digits='3'] > [data-line]::before {
 
 /* prose */
 
-.mdx > :not(:last-child),
-.mdx > [basics-codeblock] {
+.mdx > :first-child {
+  @apply mt-0;
+}
+
+.mdx > * {
   @apply mb-7;
 }
 
-.mdx > :where(h1, h2, h3, h4, h5, h6) {
-  @apply mb-7 mt-14 scroll-mt-page text-base font-semibold leading-7;
+.mdx > :where(h1, h2, h3, h4) {
+  @apply scroll-mt-page text-base font-semibold leading-7;
   /* font-feature-settings: 'kern', 'calt', 'case'; */
+}
+
+.mdx > :where(h1, h2) {
+  @apply mt-page;
+}
+
+.mdx > :where(h3, h4) {
+  @apply mt-20;
+}
+
+.mdx > :where(h1, h2) + :where(h3, h4) {
+  @apply mt-0;
 }
 
 .mdx p {
@@ -144,15 +159,15 @@ code[data-line-numbers-max-digits='3'] > [data-line]::before {
 
 .mdx b,
 .mdx strong {
-  @apply font-semibold;
+  @apply bg-gray-4 p-0.5 font-semibold;
 }
 
 .mdx em {
-  @apply font-serif;
+  @apply font-serif not-italic;
 }
 
 .mdx del {
-  @apply text-gray-8;
+  @apply !text-gray-8;
 }
 
 .mdx a {
@@ -183,6 +198,10 @@ code[data-line-numbers-max-digits='3'] > [data-line]::before {
   @apply text-gray-11;
 }
 
+.mdx > :has(+ :where(ul, ol)) {
+  @apply mb-2;
+}
+
 .mdx ul {
   list-style-type: disc;
   list-style-position: outside;
@@ -203,7 +222,12 @@ code[data-line-numbers-max-digits='3'] > [data-line]::before {
 
 .mdx li + li,
 .mdx li > ul {
-  @apply mt-2;
+  @apply mt-[7px];
+}
+
+.mdx li > div,
+.mdx li > p {
+  @apply mb-3;
 }
 
 .mdx ol {
@@ -264,7 +288,7 @@ code[data-line-numbers-max-digits='3'] > [data-line]::before {
 
 .mdx img + em,
 .mdx img + em p {
-  @apply mt-1 inline-block font-sans text-sm not-italic leading-5 text-gray-11;
+  @apply mt-2 inline-block font-sans text-sm not-italic leading-5 text-gray-11;
 }
 
 .mdx img,
