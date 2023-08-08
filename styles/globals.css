@@ -230,8 +230,15 @@
   }
 
   .link {
-    @apply text-tx underline decoration-gray-8 decoration-1 underline-offset-[2.5px]
+    @apply text-tx underline decoration-gray-8 decoration-1 underline-offset-[3px]
       transition-[color,text-decoration-color] duration-xx ease-[ease]
       hover:text-tx hover:decoration-gray-9 hover:duration-fast;
+  }
+
+  .outline-text {
+    opacity: 0.1;
+    color: transparent;
+    -webkit-text-stroke-color: rgba(170, 170, 170, 1);
+    -webkit-text-stroke-width: 2px;
   }
 }
