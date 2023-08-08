@@ -11,7 +11,7 @@ tags:
 console.log('%cfatfish', 'color: red;');
 ```
 
-### api 응답 코드에 맞춰
+### 색상을 구분하고 싶을 때
 
 ```js
 const getLogStyle = (code) => {
@@ -31,7 +31,7 @@ const getLogStyle = (code) => {
 console.log(`%c${message}`, getLogStyle(code));
 ```
 
-### 정보들을 그룹핑하고 싶을 떄
+### 정보들을 그룹핑하고 싶을 때
 
 ```js {1,11}
 console.groupCollapsed(`%c${groupTitle}`, getLogStyle(data.code));
