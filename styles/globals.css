@@ -228,4 +228,10 @@
     inset: 0;
     background: linear-gradient(to bottom, var(--bg), transparent);
   }
+
+  .link {
+    @apply text-tx underline decoration-gray-8 decoration-1 underline-offset-[2.5px]
+      transition-[color,text-decoration-color] duration-xx ease-[ease]
+      hover:text-tx hover:decoration-gray-9 hover:duration-fast;
+  }
 }

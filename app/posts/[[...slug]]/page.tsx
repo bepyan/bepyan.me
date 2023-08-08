@@ -1,7 +1,7 @@
 import '~/styles/mdx.css';
 
 import { allDocuments, type DocumentTypes } from 'contentlayer/generated';
-import { compareDesc, format } from 'date-fns';
+import { compareAsc, format } from 'date-fns';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 
@@ -52,7 +52,7 @@ type RelatedInfo = {
 
 function getReplatedInfo(post: DocumentTypes): RelatedInfo {
   return allDocuments
-    .sort((a, b) => compareDesc(new Date(a.date), new Date(b.date)))
+    .sort((a, b) => compareAsc(new Date(a.date), new Date(b.date)))
     .reduce<RelatedInfo>((ac, v, index, list) => {
       if (v._raw.flattenedPath === post._raw.flattenedPath) {
         const prevPost = list
