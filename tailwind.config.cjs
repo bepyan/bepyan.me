@@ -92,5 +92,10 @@ module.exports = {
       },
     },
   },
-  plugins: [],
+  plugins: [
+    /** @type {import('tailwindcss/types/config').PluginCreator} */
+    ({ addUtilities }) => {
+      addUtilities({});
+    },
+  ],
 };

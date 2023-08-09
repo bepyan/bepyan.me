@@ -9,7 +9,9 @@ export default function WritingPage() {
     <>
       <NavHeader href="/" />
       <main>
-        <h2 className="mb-16 font-serif font-semibold leading-7">개발서재</h2>
+        <h2 data-animate className="mb-16 font-serif font-semibold leading-7">
+          개발서재
+        </h2>
         <div className="group">
           {Object.entries(
             allWritings.reduce<{ [year: string]: Writing[] }>((ac, v) => {
@@ -23,9 +25,14 @@ export default function WritingPage() {
             }, {}),
           )
             .sort((a, b) => +b[0] - +a[0])
-            .map(([year, postList]) => {
+            .map(([year, postList], i) => {
               return (
-                <div key={year} className="relative border-t">
+                <div
+                  key={year}
+                  data-animate
+                  data-animate-stage={i + 1}
+                  className="relative border-t"
+                >
                   <h3 className="absolute top-3 -z-10 text-sm text-gray-9">
                     {year}
                   </h3>

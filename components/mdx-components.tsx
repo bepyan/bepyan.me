@@ -17,7 +17,7 @@ const components: MDXComponents = {
   ),
 };
 
-export function Mdx({ code }: { code: string }) {
+export function Mdx({ code, ...props }: { code: string }) {
   const MDXContent = useMDXComponent(code);
 
   useEffect(() => {
@@ -31,7 +31,7 @@ export function Mdx({ code }: { code: string }) {
   }, []);
 
   return (
-    <article className="mdx">
+    <article className="mdx" {...props}>
       <MDXContent components={components} />
     </article>
   );
