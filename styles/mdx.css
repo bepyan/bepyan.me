@@ -155,7 +155,7 @@ code[data-line-numbers-max-digits='3'] > [data-line]::before {
 }
 
 .mdx b,
-.mdx strong {
+.mdx strong:not:has(code) {
   @apply bg-gray-4 p-0.5 font-semibold;
 }
 
