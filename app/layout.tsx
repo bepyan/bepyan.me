@@ -25,7 +25,7 @@ export const metadata: Metadata = {
   },
   themeColor: [
     { media: '(prefers-color-scheme: light)', color: '#ffffff' },
-    { media: '(prefers-color-scheme: dark)', color: '#171717' },
+    { media: '(prefers-color-scheme: dark)', color: '#1a1a1a' },
   ],
   alternates: {
     canonical: 'https://bepyan-me.vercel.app',
