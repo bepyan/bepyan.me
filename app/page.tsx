@@ -7,9 +7,7 @@ import { GithubIcon, TwitterXIcon } from '~/components/icons/logo-icon';
 export default function Home() {
   return (
     <main className="text-tx">
-      <h1 data-animate className="mb-7 font-serif font-semibold">
-        김평안 ﹒ bepyan
-      </h1>
+      <h1 className="mb-7 font-serif font-semibold">김평안 ﹒ bepyan</h1>
       <p data-animate data-animate-stage={1}>
         사용자와 <span className="font-serif font-semibold">부드러운</span>{' '}
         상호작용하는 것, 복잡한 것을 단순하고 간편하게 만드는 것에 열광합니다.

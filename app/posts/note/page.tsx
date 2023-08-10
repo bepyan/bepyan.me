@@ -14,9 +14,7 @@ export default function NotePage() {
     <>
       <NavHeader href="/" />
       <main>
-        <h2 data-animate className="mb-10 font-serif font-semibold leading-7">
-          수첩
-        </h2>
+        <h2 className="mb-10 font-serif font-semibold leading-7">수첩</h2>
         <div className="group">
           {Object.entries(
             allNotes.reduce<{ [year: string]: Note[] }>((ac, v) => {

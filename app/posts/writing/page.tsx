@@ -14,9 +14,7 @@ export default function WritingPage() {
     <>
       <NavHeader href="/" />
       <main>
-        <h2 data-animate className="mb-16 font-serif font-semibold leading-7">
-          개발서재
-        </h2>
+        <h2 className="mb-16 font-serif font-semibold leading-7">개발서재</h2>
         <div className="group">
           {Object.entries(
             allWritings.reduce<{ [year: string]: Writing[] }>((ac, v) => {
