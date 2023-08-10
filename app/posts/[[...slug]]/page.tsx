@@ -95,7 +95,7 @@ export default function WritingPage({ params }: PageProps) {
     <>
       <NavHeader href={`/posts/${post.type.toLocaleLowerCase()}`} />
       <main>
-        <div className="mb-10">
+        <div data-animate className="mb-10">
           <h1 className="font-semibold leading-7">{post.title}</h1>
           <time className="text-sm text-gray-11">
             {format(new Date(post.date), 'MMMM dd. yyyy')}
