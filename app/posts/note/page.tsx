@@ -15,7 +15,7 @@ export default function NotePage() {
       <NavHeader href="/" />
       <main>
         <h2 className="mb-10 font-serif font-semibold leading-7">수첩</h2>
-        <div className="group">
+        <div className="group border-l pl-4">
           {Object.entries(
             allNotes.reduce<{ [year: string]: Note[] }>((ac, v) => {
               const year = new Date(v.date).getFullYear();
@@ -34,15 +34,13 @@ export default function NotePage() {
                 .reduce((stage, [, list]) => stage + list.length, 1);
 
               return (
-                <div key={year} className="relative mt-4">
+                <div key={year} className="relative mb-8">
                   <div
                     data-animate
                     data-animate-stage={yearStage}
-                    className="h-8 select-none"
+                    className="absolute -left-20 select-none sm:relative sm:left-0 sm:mb-2"
                   >
-                    <h3 className="outline-text absolute -left-8 top-2 -z-10 text-7xl font-[1000]">
-                      {year}
-                    </h3>
+                    <h3 className="font-serif text-gray-11">{year}</h3>
                   </div>
                   {postList
                     .sort(
@@ -51,18 +49,21 @@ export default function NotePage() {
                     )
                     .map((post, i) => {
                       return (
-                        <Link
+                        <div
+                          key={i}
                           data-animate
                           data-animate-stage={yearStage + i}
-                          href={post.slug}
-                          key={i}
-                          className="group/item flex items-center py-2 transition-opacity hover:!opacity-100 group-hover:opacity-40"
                         >
-                          <span>{post.title}</span>
-                          <span className="flex-shrink-0 px-2 text-sm text-gray-9">
-                            {format(new Date(post.date), 'MM. dd.')}
-                          </span>
-                        </Link>
+                          <Link
+                            href={post.slug}
+                            className="mb-4 flex items-center transition-opacity hover:!opacity-100 group-hover:opacity-40"
+                          >
+                            <span>{post.title}</span>
+                            <span className="flex-shrink-0 px-2 text-sm text-gray-9">
+                              {format(new Date(post.date), 'MM. dd.')}
+                            </span>
+                          </Link>
+                        </div>
                       );
                     })}
                 </div>
