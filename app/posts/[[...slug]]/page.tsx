@@ -2,6 +2,7 @@ import '~/styles/mdx.css';
 
 import { allDocuments, type DocumentTypes } from 'contentlayer/generated';
 import { compareAsc, format } from 'date-fns';
+import { type Metadata } from 'next';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 
@@ -27,7 +28,7 @@ function getDocFromParams({ params }: PageProps) {
   return post;
 }
 
-export function generateMetadata({ params }: PageProps) {
+export function generateMetadata({ params }: PageProps): Metadata {
   const post = getDocFromParams({ params });
 
   if (!post) {
@@ -36,6 +37,7 @@ export function generateMetadata({ params }: PageProps) {
 
   return {
     title: post.title,
+    description: post.description,
   };
 }
 

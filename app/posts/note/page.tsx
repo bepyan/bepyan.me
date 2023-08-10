@@ -1,8 +1,13 @@
 import { allNotes, type Note } from 'contentlayer/generated';
 import { format } from 'date-fns';
+import { type Metadata } from 'next';
 import Link from 'next/link';
 
 import NavHeader from '~/components/nav-header';
+
+export const metadata: Metadata = {
+  title: '수첩',
+};
 
 export default function NotePage() {
   return (

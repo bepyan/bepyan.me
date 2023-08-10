@@ -8,8 +8,14 @@ import { cn } from '~/libs/utils';
 import { Providers } from './providers';
 
 export const metadata: Metadata = {
-  title: 'bepyan.me',
+  title: {
+    template: '%s | bepyan',
+    default: 'bepyan.me',
+  },
   description: 'Develop about something Soft and Simple.',
+  openGraph: {
+    images: ['/public/img/splash-1.jpg'],
+  },
   icons: {
     icon: '/favicon.svg',
     other: {
@@ -21,6 +27,9 @@ export const metadata: Metadata = {
     { media: '(prefers-color-scheme: light)', color: '#ffffff' },
     { media: '(prefers-color-scheme: dark)', color: '#171717' },
   ],
+  alternates: {
+    canonical: 'https://bepyan-me.vercel.app',
+  },
 };
 
 export default function RootLayout({

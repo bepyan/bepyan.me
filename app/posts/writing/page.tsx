@@ -1,8 +1,13 @@
 import { allWritings, type Writing } from 'contentlayer/generated';
 import { format } from 'date-fns';
+import { type Metadata } from 'next';
 import Link from 'next/link';
 
 import NavHeader from '~/components/nav-header';
+
+export const metadata: Metadata = {
+  title: '개발서재',
+};
 
 export default function WritingPage() {
   return (
