@@ -1,12 +1,11 @@
 'use client';
-import type { MDXComponents } from 'mdx/types';
 import mediumZoom from 'medium-zoom';
 import { useMDXComponent } from 'next-contentlayer/hooks';
 import { useEffect } from 'react';
 
 import { cn } from '~/libs/utils';
 
-const components: MDXComponents = {
+const components = {
   hr: ({ ...props }: React.HTMLAttributes<HTMLHRElement>) => (
     <hr aria-orientation="horizontal" {...props} />
   ),
