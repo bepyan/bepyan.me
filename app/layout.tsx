@@ -9,13 +9,18 @@ import { Providers } from './providers';
 
 export const metadata: Metadata = {
   title: 'bepyan.me',
-  description: 'Frontend Developer at Kakao, developing Brunch.',
-
+  description: 'Develop about something Soft and Simple.',
   icons: {
     icon: '/favicon.svg',
-    // shortcut: '/favicon-16x16.png',
-    // apple: '/apple-touch-icon.png',
+    other: {
+      rel: 'alternative icon',
+      url: '/favicon.ico',
+    },
   },
+  themeColor: [
+    { media: '(prefers-color-scheme: light)', color: '#ffffff' },
+    { media: '(prefers-color-scheme: dark)', color: '#171717' },
+  ],
 };
 
 export default function RootLayout({
