@@ -14,7 +14,7 @@ export const metadata: Metadata = {
   },
   description: 'Develop about something Soft and Simple.',
   openGraph: {
-    images: ['/public/img/splash-1.jpg'],
+    images: ['/img/splash-1.jpg'],
   },
   icons: {
     icon: '/favicon.svg',

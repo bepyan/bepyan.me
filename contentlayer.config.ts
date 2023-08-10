@@ -14,6 +14,7 @@ import remarkGfm from 'remark-gfm';
 const fields: FieldDefs = {
   title: { type: 'string', required: true },
   description: { type: 'string', required: true },
+  image: { type: 'string' },
   date: { type: 'date', required: true },
   draft: { type: 'boolean' },
   tags: { type: 'list', of: { type: 'string' } },
