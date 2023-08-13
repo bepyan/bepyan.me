@@ -57,9 +57,9 @@ tags:
 하나의 설정 파일에서 원하는 번들이 생성 될 수 있도록 컨트롤할 수 있습니다.
 `entry`와 `output`을 명시하고 어떤 `plugin`과 `loader`로 파일들을 다룰 건지 명시하면 됩니다.
 
-```js:webpack.config.js
+```js title="webpack.config.js"
 const path = require('path');
-const HtmlWebpackPlugin = require("html-webpack-plugin");
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
   entry: {
@@ -74,7 +74,7 @@ module.exports = {
       {
         test: /\.js$/,
         exclude: /node_modules/,
-        use: ["babel-loader"],
+        use: ['babel-loader'],
       },
     ],
   },
@@ -140,7 +140,7 @@ webpack 시대 개막과 함께 2017년부터 개발이 시작된 `module bundle
 rollup의 사용방식과 구성방식은 webpack과 거의 흡사합니다.
 `input`과 `entry`를 설정하고 번들링에 적용할 기능을 `plugin` 형태로 끼워 넣으면 됩니다.
 
-```js:rollup.config.js
+```js title="rollup.config.js"
 import commonjs from '@rollup/plugin-commonjs';
 import resolve from '@rollup/plugin-node-resolve';
 import { terser } from 'rollup-plugin-terser';
@@ -154,11 +154,7 @@ export default {
     format: 'iife',
     sourcemap: true,
   },
-  plugins: [
-    resolve(),
-    commonjs(),
-    production && terser(),
-  ],
+  plugins: [resolve(), commonjs(), production && terser()],
 };
 ```
 
