@@ -2,7 +2,11 @@ import { allNotes, allWritings } from 'contentlayer/generated';
 import { compareDesc } from 'date-fns';
 import Link from 'next/link';
 
-import { GithubIcon, TwitterXIcon } from '~/components/icons/logo-icon';
+import {
+  GithubIcon,
+  NotionIcon,
+  TwitterXIcon,
+} from '~/components/icons/logo-icon';
 
 export default function Home() {
   return (
@@ -50,6 +54,14 @@ export default function Home() {
           rel="noreferrer"
         >
           <TwitterXIcon />
+        </Link>
+        <Link
+          className="flex items-end text-gray-12 hover:text-gray-11"
+          href="https://bepyan.notion.site/Frontend-Developer-69fd245161734c1793e8df78dffe705c?pvs=4"
+          target="_blank"
+        >
+          <NotionIcon />
+          <span className="ml-px text-[6px] leading-tight">(이력서)</span>
         </Link>
       </div>
 
