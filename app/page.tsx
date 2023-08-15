@@ -4,10 +4,8 @@ import Link from 'next/link';
 
 import {
   GithubIcon,
-  InstagramIcon,
   NotionIcon,
   TwitterXIcon,
-  YoutubeIcon,
 } from '~/components/icons/logo-icon';
 
 export default function Home() {
@@ -56,22 +54,6 @@ export default function Home() {
           rel="noreferrer"
         >
           <TwitterXIcon />
-        </Link>
-        <Link
-          className="text-gray-12 hover:text-gray-11"
-          href="https://www.instagram.com/__pyungan/"
-          target="_blank"
-          rel="noreferrer"
-        >
-          <InstagramIcon />
-        </Link>
-        <Link
-          className="text-gray-12 hover:text-gray-11"
-          href="https://www.youtube.com/channel/@bepyan"
-          target="_blank"
-          rel="noreferrer"
-        >
-          <YoutubeIcon />
         </Link>
         <Link
           className="flex items-end text-gray-12 hover:text-gray-11"
