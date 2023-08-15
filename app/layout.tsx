@@ -15,18 +15,23 @@ export const metadata: Metadata = {
   description: 'Develop about something Soft and Simple.',
   openGraph: {
     images: ['/img/splash-1.jpg'],
+    locale: 'ko_KR',
   },
   icons: {
-    icon: '/favicon.svg',
-    other: {
-      rel: 'alternative icon',
-      url: '/favicon.ico',
-    },
+    shortcut: '/favicon.ico',
   },
   themeColor: [
     { media: '(prefers-color-scheme: light)', color: '#ffffff' },
     { media: '(prefers-color-scheme: dark)', color: '#1a1a1a' },
   ],
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+    },
+  },
   alternates: {
     canonical: 'https://bepyan-me.vercel.app',
   },
