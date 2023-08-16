@@ -27,7 +27,7 @@ export default function Home() {
         >
           카카오
         </Link>
-        에서&nbsp;
+        에서{' '}
         <Link
           href="https://brunch.co.kr/"
           target="_blank"
