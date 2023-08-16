@@ -15,7 +15,8 @@ export default function Home() {
       <p data-animate data-animate-stage={1}>
         사용자와 <span className="font-serif font-semibold">부드러운</span>{' '}
         상호작용하는 것, 복잡한 것을 단순하고 간편하게 만드는 것에 열광합니다.
-        <br />더 나은 자신이 되기 위해 영감을 쫒고 기록하려합니다.
+        <br />
+        탐구하고 사색하는 것을 좋아하여 틈틈이 발견한 것을 기록하려 합니다.
       </p>
       <p data-animate data-animate-stage={2} className="mt-7">
         현재{' '}
@@ -67,7 +68,7 @@ export default function Home() {
 
       <div data-animate data-animate-stage={3} className="mt-12 flex gap-8">
         <div className="w-80">
-          <h2 className="mb-4 font-serif text-gray-11">개발서재</h2>
+          <h2 className="mb-4 font-serif text-gray-11">나의 서재</h2>
           {allWritings
             .sort((a, b) => compareDesc(new Date(a.date), new Date(b.date)))
             .slice(0, 3)

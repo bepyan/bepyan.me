@@ -6,7 +6,7 @@ import Link from 'next/link';
 import NavHeader from '~/components/nav-header';
 
 export const metadata: Metadata = {
-  title: '개발서재',
+  title: '나의 서재',
 };
 
 export default function WritingPage() {
@@ -14,7 +14,7 @@ export default function WritingPage() {
     <>
       <NavHeader href="/" />
       <main>
-        <h2 className="mb-16 font-serif font-semibold leading-7">개발서재</h2>
+        <h2 className="mb-16 font-serif font-semibold leading-7">나의 서재</h2>
         <div className="group">
           {Object.entries(
             allWritings.reduce<{ [year: string]: Writing[] }>((ac, v) => {
