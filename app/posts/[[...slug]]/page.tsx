@@ -10,6 +10,8 @@ import { Mdx } from '~/components/mdx-components';
 import NavHeader from '~/components/nav-header';
 import { parseToc } from '~/libs/mdx';
 
+import Toc from './Toc';
+
 interface PageProps {
   params: {
     slug: string[];
@@ -96,21 +98,7 @@ export default function WritingPage({ params }: PageProps) {
   return (
     <>
       <NavHeader href={`/posts/${post.type.toLocaleLowerCase()}`}>
-        <ul
-          data-animate-layer
-          className="mt-12 space-y-2 font-sans text-sm text-gray-11"
-        >
-          {toc.map((section, i) => (
-            <li key={i} className="flex">
-              <a
-                className="transition-colors hover:text-gray-12"
-                href={`#${section.slug}`}
-              >
-                {section.text}
-              </a>
-            </li>
-          ))}
-        </ul>
+        <Toc toc={toc} />
       </NavHeader>
       <main>
         {/* header */}
