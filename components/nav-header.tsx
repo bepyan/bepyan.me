@@ -12,7 +12,7 @@ export default function NavHeader({
 }) {
   const heading = useMemo(() => {
     if (href.includes('writing')) {
-      return '개발서재';
+      return '나의 서재';
     } else if (href.includes('note')) {
       return '수첩';
     } else {
