@@ -3,6 +3,7 @@ import '~/styles/globals.css';
 import type { Metadata } from 'next';
 
 import FloatScrollTopButton from '~/components/float-scroll-top-button';
+import GoogleAnalytics from '~/components/google-analytics';
 import { fontMono, fontSans, fontSansVariable, fontSerif } from '~/libs/fonts';
 import { cn } from '~/libs/utils';
 
@@ -61,6 +62,7 @@ export default function RootLayout({
           </div>
         </Providers>
       </body>
+      {process.env.NODE_ENV === 'development' && <GoogleAnalytics />}
     </html>
   );
 }
