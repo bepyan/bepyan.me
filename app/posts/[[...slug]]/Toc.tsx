@@ -1,5 +1,6 @@
 'use client';
 
+import throttle from 'lodash.throttle';
 import { useEffect, useState } from 'react';
 
 import { type TOCSection } from '~/libs/mdx';
@@ -31,45 +32,47 @@ export default function Toc({ toc }: { toc: TOCSection[] }) {
 }
 
 const useTocScroll = (tableOfContents: TOCSection[]) => {
-  const [currentSectionSlug, setCurrentSectionSlug] = useState<
-    string | undefined
-  >();
+  const [currentSectionSlug, setCurrentSectionSlug] = useState<string>();
 
   useEffect(() => {
     if (tableOfContents.length === 0) return;
 
     let headings: { id: string; top: number }[];
+    let pageTop = 0;
 
-    const style = window.getComputedStyle(document.documentElement);
-    const scrollMt =
-      parseFloat(
-        style.getPropertyValue('--scroll-mt').match(/[\d.]+/)?.[0] ?? '0',
-      ) * parseFloat(style.fontSize.match(/[\d.]+/)?.[0] ?? '16');
-
-    function onResize() {
+    const onResize = () => {
       headings = Array.from(
         document.querySelectorAll<HTMLElement>('.mdx h2'),
-      ).map((element) => ({ id: element.id, top: element.offsetTop }));
-    }
+      ).map((element) => ({
+        id: element.id,
+        top: element.offsetTop,
+      }));
 
-    function onScroll() {
+      pageTop = parseFloat(
+        window
+          .getComputedStyle(document.documentElement)
+          .getPropertyValue('--page-top')
+          .match(/[\d.]+/)?.[0] ?? '0',
+      );
+    };
+
+    const onScroll = throttle(() => {
       if (!headings) return;
 
-      const NAV_TOP = 120;
-      const top = window.pageYOffset + scrollMt - NAV_TOP + 1;
-
       let current: typeof currentSectionSlug = undefined;
+      const top = window.scrollY + pageTop;
+
       for (let i = 0; i < headings.length; i++) {
         if (top >= headings[i].top) {
           current = headings[i].id;
         }
       }
+
       setCurrentSectionSlug(current);
-    }
+    }, 300);
 
     onResize();
     onScroll();
-
     window.addEventListener('scroll', onScroll, { capture: true });
     window.addEventListener('resize', onResize, { capture: true });
     return () => {

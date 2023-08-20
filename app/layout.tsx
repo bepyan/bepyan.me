@@ -2,6 +2,7 @@ import '~/styles/globals.css';
 
 import type { Metadata } from 'next';
 
+import FloatScrollTopButton from '~/components/float-scroll-top-button';
 import { fontMono, fontSans, fontSansVariable, fontSerif } from '~/libs/fonts';
 import { cn } from '~/libs/utils';
 
@@ -56,6 +57,7 @@ export default function RootLayout({
           <div className="blur-layer" aria-hidden="true"></div>
           <div className="container mx-auto max-w-page py-page">
             <div className="main-grid">{children}</div>
+            <FloatScrollTopButton />
           </div>
         </Providers>
       </body>
