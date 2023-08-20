@@ -62,7 +62,7 @@ export default function RootLayout({
           </div>
         </Providers>
       </body>
-      {process.env.NODE_ENV === 'development' && <GoogleAnalytics />}
+      {process.env.NODE_ENV === 'production' && <GoogleAnalytics />}
     </html>
   );
 }
