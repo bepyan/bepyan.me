@@ -5,6 +5,7 @@ import type { Metadata } from 'next';
 import FloatScrollTopButton from '~/components/float-scroll-top-button';
 import GoogleAnalytics from '~/components/google-analytics';
 import { fontMono, fontSans, fontSansVariable, fontSerif } from '~/libs/fonts';
+import siteConfig from '~/libs/site-config';
 import { cn } from '~/libs/utils';
 
 import { Providers } from './providers';
@@ -35,7 +36,7 @@ export const metadata: Metadata = {
     },
   },
   alternates: {
-    canonical: 'https://bepyan-me.vercel.app',
+    canonical: siteConfig.url,
   },
 };
 
