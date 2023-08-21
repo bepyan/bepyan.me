@@ -6,7 +6,7 @@ import { useEffect, useState } from 'react';
 import { type TOCSection } from '~/libs/mdx';
 import { cn } from '~/libs/utils';
 
-export default function Toc({ toc }: { toc: TOCSection[] }) {
+export default function TableOfContent({ toc }: { toc: TOCSection[] }) {
   const { currentSectionSlug } = useTocScroll(toc);
 
   return (

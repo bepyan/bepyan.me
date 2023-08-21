@@ -10,7 +10,7 @@ import { Mdx } from '~/components/mdx-components';
 import NavHeader from '~/components/nav-header';
 import { parseToc } from '~/libs/mdx';
 
-import Toc from './Toc';
+import TableOfContent from './table-of-content';
 
 interface PageProps {
   params: {
@@ -107,7 +107,7 @@ export default function WritingPage({ params }: PageProps) {
   return (
     <>
       <NavHeader href={`/posts/${post.type.toLocaleLowerCase()}`}>
-        <Toc toc={toc} />
+        <TableOfContent toc={toc} />
       </NavHeader>
       <main>
         {/* header */}
