@@ -28,6 +28,10 @@ function getDocFromParams({ params }: PageProps) {
   const slug = params.slug?.join('/') || '';
   const post = allDocuments.find((doc) => doc._raw.flattenedPath === slug);
 
+  if (post) {
+    post.date = format(new Date(post.date), 'MMMM dd. yyyy');
+  }
+
   return post;
 }
 
@@ -46,7 +50,7 @@ export function generateMetadata({ params }: PageProps): Metadata {
     openGraph: {
       title: post.title,
       description: post.description,
-      images: [`/og?title=${post.title}&date=${post.date}`],
+      images: [`/og?title=${post.title}&subtitle=${post.date}`],
       locale: 'ko_KR',
       type: 'website',
     },
@@ -113,9 +117,7 @@ export default function WritingPage({ params }: PageProps) {
         {/* header */}
         <div className="mb-10">
           <h1 className="font-semibold leading-7">{post.title}</h1>
-          <time className="text-sm text-gray-11">
-            {format(new Date(post.date), 'MMMM dd. yyyy')}
-          </time>
+          <time className="text-sm text-gray-11">{post.date}</time>
         </div>
         {/* content */}
         <Mdx data-animate-layer code={post.body.code} />
