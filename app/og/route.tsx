@@ -7,7 +7,7 @@ export async function GET(request: Request) {
   const { searchParams } = new URL(request.url);
 
   const [AritaBuriFont] = await Promise.all([
-    fetch(new URL('../../assets/AritaBuri-Bold.otf', import.meta.url)).then(
+    fetch(new URL('../../assets/AritaBuri-Bold.woff', import.meta.url)).then(
       (res) => res.arrayBuffer(),
     ),
   ]);
@@ -43,7 +43,6 @@ export async function GET(request: Request) {
             width: 700,
             fontSize: 50,
             lineHeight: 1.4,
-            fontWeight: 700,
             wordBreak: 'keep-all',
           }}
         >
@@ -64,8 +63,6 @@ export async function GET(request: Request) {
         {
           name: 'AritaBuri',
           data: AritaBuriFont,
-          style: 'normal',
-          weight: 400,
         },
       ],
     },
