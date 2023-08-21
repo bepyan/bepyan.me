@@ -15,7 +15,9 @@ export const metadata: Metadata = {
   },
   description: 'Develop about something Soft and Simple.',
   openGraph: {
-    images: ['/img/splash-1.jpg'],
+    images: [
+      'https://user-images.githubusercontent.com/65283190/262039301-7ca908de-e523-478e-b0af-b70665dd7703.jpg',
+    ],
     locale: 'ko_KR',
   },
   icons: {

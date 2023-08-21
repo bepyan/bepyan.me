@@ -50,7 +50,9 @@ export function generateMetadata({ params }: PageProps): Metadata {
     openGraph: {
       title: post.title,
       description: post.description,
-      images: [`/og?title=${post.title}&subtitle=${post.date}`],
+      images: [
+        'https://user-images.githubusercontent.com/65283190/262063367-a7407bba-09a0-420a-ae45-2ed3e6f3e3b8.png',
+      ],
       locale: 'ko_KR',
       type: 'website',
     },

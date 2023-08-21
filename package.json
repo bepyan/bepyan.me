@@ -22,7 +22,6 @@
     }
   },
   "dependencies": {
-    "@vercel/og": "^0.5.11",
     "autoprefixer": "10.4.14",
     "clsx": "^1.2.1",
     "date-fns": "^2.30.0",
