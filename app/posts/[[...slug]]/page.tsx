@@ -39,7 +39,9 @@ export function generateMetadata({ params }: PageProps): Metadata {
   }
 
   return {
-    title: post.title,
+    title: {
+      absolute: post.title,
+    },
     description: post.description,
     openGraph: {
       title: post.title,
