@@ -41,6 +41,13 @@ export function generateMetadata({ params }: PageProps): Metadata {
   return {
     title: post.title,
     description: post.description,
+    openGraph: {
+      title: post.title,
+      description: post.description,
+      images: [`/og?title=${post.title}&date=${post.date}`],
+      locale: 'ko_KR',
+      type: 'website',
+    },
   };
 }
 

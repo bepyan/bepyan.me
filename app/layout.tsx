@@ -10,7 +10,7 @@ import { Providers } from './providers';
 
 export const metadata: Metadata = {
   title: {
-    template: '%s | bepyan',
+    template: '%s',
     default: 'bepyan.me',
   },
   description: 'Develop about something Soft and Simple.',
