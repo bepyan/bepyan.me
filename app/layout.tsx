@@ -4,9 +4,7 @@ import type { Metadata } from 'next';
 
 import FloatScrollTopButton from '~/components/float-scroll-top-button';
 import GoogleAnalytics from '~/components/google-analytics';
-import { fontMono, fontSans, fontSansVariable, fontSerif } from '~/libs/fonts';
 import siteConfig from '~/libs/site-config';
-import { cn } from '~/libs/utils';
 
 import { Providers } from './providers';
 
@@ -47,14 +45,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="ko" suppressHydrationWarning>
-      <body
-        className={cn(
-          fontSansVariable.variable,
-          fontSans.variable,
-          fontSerif.variable,
-          fontMono.variable,
-        )}
-      >
+      <body>
         <Providers>
           <div className="blur-layer" aria-hidden="true"></div>
           <div className="container mx-auto max-w-page py-page">

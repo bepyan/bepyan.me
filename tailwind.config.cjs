@@ -11,13 +11,9 @@ module.exports = {
   ],
   theme: {
     fontFamily: {
-      sans: [
-        'var(--font-sans-variable)',
-        'var(--font-sans)',
-        'var(--font-fallback)',
-      ],
-      serif: ['var(--font-serif)', 'var(--font-fallback)'],
-      mono: ['var(--font-mono)', 'var(--font-sans)'],
+      sans: ['Pretendard Variable', 'sans'],
+      serif: ['AritaBuri', 'sans-serif'],
+      mono: ['Source Code Pro', 'monospace'],
     },
     colors: {
       transparent: 'transparent',
