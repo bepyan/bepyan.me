@@ -5,12 +5,8 @@ export const runtime = 'edge';
 export async function GET(request: Request) {
   const { searchParams } = new URL(request.url);
 
-  const AritaBuriFont = await fetch(
-    new URL('../../assets/AritaBuri-Bold.otf', import.meta.url),
-  ).then((res) => res.arrayBuffer());
-
   const title = searchParams.get('title') ?? 'bepyan';
-  const subtitle = searchParams.get('date');
+  const subtitle = searchParams.get('subtitle');
 
   return new ImageResponse(
     (
@@ -21,7 +17,6 @@ export async function GET(request: Request) {
           position: 'relative',
           width: '100%',
           height: '100%',
-          fontFamily: 'AritaBuri',
           padding: '80px 60px',
           color: '#f2f2f2',
           backgroundColor: '#1a1a1a',
@@ -37,30 +32,22 @@ export async function GET(request: Request) {
         <div
           style={{
             marginTop: 25,
-            width: 700,
+            width: 500,
             fontSize: 33,
             lineHeight: 1.4,
             wordBreak: 'keep-all',
           }}
         >
-          {title ?? 'May 22. 2023'}
+          {title}
         </div>
-        {subtitle && (
-          <div style={{ marginTop: 20, fontSize: 20, color: '#a0a0a0' }}>
-            {subtitle}
-          </div>
-        )}
+        <div style={{ marginTop: 20, fontSize: 20, color: '#a0a0a0' }}>
+          {subtitle}
+        </div>
       </div>
     ),
     {
       width: 800,
       height: 420,
-      fonts: [
-        {
-          name: 'AritaBuri',
-          data: AritaBuriFont,
-        },
-      ],
     },
   );
 }
