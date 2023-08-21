@@ -6,11 +6,8 @@ export const runtime = 'edge';
 export async function GET(request: Request) {
   const { searchParams } = new URL(request.url);
 
-  const [AritaBuriBoldFont, AritaBuriFont] = await Promise.all([
-    fetch(new URL('../../assets/AritaBuri-Bold.ttf', import.meta.url)).then(
-      (res) => res.arrayBuffer(),
-    ),
-    fetch(new URL('../../assets/AritaBuri-Medium.ttf', import.meta.url)).then(
+  const [AritaBuriFont] = await Promise.all([
+    fetch(new URL('../../assets/AritaBuri-Bold.otf', import.meta.url)).then(
       (res) => res.arrayBuffer(),
     ),
   ]);
@@ -30,8 +27,7 @@ export async function GET(request: Request) {
           fontFamily: 'AritaBuri',
           padding: '130px 100px',
           color: '#f2f2f2',
-          backgroundImage:
-            'linear-gradient(to bottom right, #000000, #1a1a1a90), url(https://user-images.githubusercontent.com/65283190/262063367-a7407bba-09a0-420a-ae45-2ed3e6f3e3b8.png)',
+          backgroundColor: '#1a1a1a',
         }}
       >
         <div
@@ -65,12 +61,6 @@ export async function GET(request: Request) {
       height: 630,
       emoji: 'twemoji',
       fonts: [
-        {
-          name: 'AritaBuri',
-          data: AritaBuriBoldFont,
-          style: 'normal',
-          weight: 700,
-        },
         {
           name: 'AritaBuri',
           data: AritaBuriFont,
