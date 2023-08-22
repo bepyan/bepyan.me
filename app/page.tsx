@@ -85,10 +85,7 @@ export default function Home() {
                 </div>
               );
             })}
-          <Link
-            href="/posts/writing"
-            className="link inline-block text-gray-11"
-          >
+          <Link href="/writing" className="link inline-block text-gray-11">
             ...
           </Link>
         </div>
@@ -107,7 +104,7 @@ export default function Home() {
                 </div>
               );
             })}
-          <Link href="/posts/note" className="link inline-block text-gray-11">
+          <Link href="/note" className="link inline-block text-gray-11">
             ...
           </Link>
         </div>

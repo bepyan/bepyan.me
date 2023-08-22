@@ -23,7 +23,7 @@ const fields: FieldDefs = {
 const computedFields: ComputedFields = {
   slug: {
     type: 'string',
-    resolve: (doc) => `/posts/${doc._raw.flattenedPath}`,
+    resolve: (doc) => `/posts/${doc._raw.flattenedPath.split('/').at(-1)}`,
   },
 };
 

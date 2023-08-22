@@ -20,13 +20,13 @@ interface PageProps {
 
 export function generateStaticParams() {
   return allDocuments.map((post) => ({
-    slug: post._raw.flattenedPath.split('/'),
+    slug: post.slug.split('/'),
   }));
 }
 
 function getDocFromParams({ params }: PageProps) {
-  const slug = params.slug?.join('/') || '';
-  const post = allDocuments.find((doc) => doc._raw.flattenedPath === slug);
+  const slug = `/posts/${params.slug.join('/')}`;
+  const post = allDocuments.find((doc) => doc.slug === slug);
 
   if (post) {
     post.date = format(new Date(post.date), 'MMMM dd. yyyy');
@@ -74,7 +74,7 @@ function getReplatedInfo(post: DocumentTypes): RelatedInfo {
   return allDocuments
     .sort((a, b) => compareAsc(new Date(a.date), new Date(b.date)))
     .reduce<RelatedInfo>((ac, v, index, list) => {
-      if (v._raw.flattenedPath === post._raw.flattenedPath) {
+      if (v.slug === post.slug) {
         const prevPost = list
           .slice(0, index)
           .reverse()
@@ -82,7 +82,7 @@ function getReplatedInfo(post: DocumentTypes): RelatedInfo {
         if (prevPost) {
           ac.prevPost = {
             title: prevPost.title,
-            href: `/posts/${prevPost._raw.flattenedPath}`,
+            href: prevPost.slug,
           };
         }
 
@@ -92,7 +92,7 @@ function getReplatedInfo(post: DocumentTypes): RelatedInfo {
         if (nextPost) {
           ac.nextPost = {
             title: nextPost.title,
-            href: `/posts/${nextPost._raw.flattenedPath}`,
+            href: nextPost.slug,
           };
         }
       }
@@ -112,7 +112,7 @@ export default function WritingPage({ params }: PageProps) {
 
   return (
     <>
-      <NavHeader href={`/posts/${post.type.toLocaleLowerCase()}`}>
+      <NavHeader href={`/${post.type.toLocaleLowerCase()}`}>
         <TableOfContent toc={toc} />
       </NavHeader>
       <main>
