@@ -5,8 +5,8 @@ import siteConfig from '~/libs/site-config';
 export default function sitemap() {
   const posts = allDocuments
     .filter((doc) => !doc.draft)
-    .map(({ slug, date }) => ({
-      url: `${siteConfig.url}${slug}`,
+    .map(({ href, date }) => ({
+      url: `${siteConfig.url}${href}`,
       lastModified: date,
     }));
 
