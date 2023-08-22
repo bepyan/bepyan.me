@@ -11,6 +11,8 @@ import rehypeSlug from 'rehype-slug';
 import remarkBreaks from 'remark-breaks';
 import remarkGfm from 'remark-gfm';
 
+import { parseSlug } from './libs/mdx';
+
 const fields: FieldDefs = {
   title: { type: 'string', required: true },
   description: { type: 'string', required: true },
@@ -23,7 +25,11 @@ const fields: FieldDefs = {
 const computedFields: ComputedFields = {
   slug: {
     type: 'string',
-    resolve: (doc) => `/posts/${doc._raw.flattenedPath.split('/').at(-1)}`,
+    resolve: parseSlug,
+  },
+  href: {
+    type: 'string',
+    resolve: (doc) => `/posts/${parseSlug(doc)}`,
   },
 };
 

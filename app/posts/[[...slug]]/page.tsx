@@ -19,13 +19,11 @@ interface PageProps {
 }
 
 export function generateStaticParams() {
-  return allDocuments.map((post) => ({
-    slug: post.slug.split('/posts/').slice(1),
-  }));
+  return allDocuments.map(({ slug }) => ({ slug: slug.split('/') }));
 }
 
 function getDocFromParams({ params }: PageProps) {
-  const slug = `/posts/${params.slug.join('/')}`;
+  const slug = params.slug.join('/');
   const post = allDocuments.find((doc) => doc.slug === slug);
 
   if (post) {
@@ -82,7 +80,7 @@ function getReplatedInfo(post: DocumentTypes): RelatedInfo {
         if (prevPost) {
           ac.prevPost = {
             title: prevPost.title,
-            href: prevPost.slug,
+            href: prevPost.href,
           };
         }
 
@@ -92,7 +90,7 @@ function getReplatedInfo(post: DocumentTypes): RelatedInfo {
         if (nextPost) {
           ac.nextPost = {
             title: nextPost.title,
-            href: nextPost.slug,
+            href: nextPost.href,
           };
         }
       }

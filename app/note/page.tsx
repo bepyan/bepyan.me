@@ -58,7 +58,7 @@ export default function NotePage() {
                           data-animate-stage={yearStage + i}
                         >
                           <Link
-                            href={post.slug}
+                            href={post.href}
                             className="mb-4 flex items-center transition-opacity hover:!opacity-100 group-hover:opacity-40"
                           >
                             <span>{post.title}</span>

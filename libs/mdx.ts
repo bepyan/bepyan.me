@@ -1,7 +1,12 @@
 import { type DocumentTypes } from 'contentlayer/generated';
+import { type LocalDocument } from 'contentlayer/source-files';
 import { compareDesc } from 'date-fns';
 
 import { isDev, isProd } from './utils';
+
+export const parseSlug = (doc: LocalDocument | DocumentTypes) => {
+  return doc._raw.flattenedPath.split('/').slice(1).join('/');
+};
 
 export const filterDraft = (doc: DocumentTypes) => {
   return isDev || (isProd && !doc.draft);

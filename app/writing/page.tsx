@@ -50,7 +50,7 @@ export default function WritingPage() {
                     .map((post, i) => {
                       return (
                         <Link
-                          href={post.slug}
+                          href={post.href}
                           key={i}
                           className="group/item flex transition-opacity hover:!opacity-100 group-hover:opacity-40"
                         >
