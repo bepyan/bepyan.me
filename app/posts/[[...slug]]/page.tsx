@@ -20,7 +20,7 @@ interface PageProps {
 
 export function generateStaticParams() {
   return allDocuments.map((post) => ({
-    slug: post.slug.split('/'),
+    slug: post.slug.split('/posts/').slice(1),
   }));
 }
 
