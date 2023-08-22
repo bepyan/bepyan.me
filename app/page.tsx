@@ -1,5 +1,4 @@
 import { allNotes, allWritings } from 'contentlayer/generated';
-import { compareDesc } from 'date-fns';
 import Link from 'next/link';
 
 import {
@@ -7,7 +6,7 @@ import {
   NotionIcon,
   TwitterXIcon,
 } from '~/components/icons/logo-icon';
-import { filterDraft } from '~/libs/mdx';
+import { filterDraft, sortDateDesc } from '~/libs/mdx';
 
 export default function Home() {
   return (
@@ -72,7 +71,7 @@ export default function Home() {
           <h2 className="mb-4 font-serif text-gray-11">나의 서재</h2>
           {allWritings
             .filter(filterDraft)
-            .sort((a, b) => compareDesc(new Date(a.date), new Date(b.date)))
+            .sort(sortDateDesc)
             .slice(0, 3)
             .map((post, i) => {
               return (
@@ -97,7 +96,7 @@ export default function Home() {
           <h2 className="mb-4 font-serif text-gray-11">수첩</h2>
           {allNotes
             .filter(filterDraft)
-            .sort((a, b) => compareDesc(new Date(a.date), new Date(b.date)))
+            .sort(sortDateDesc)
             .slice(0, 5)
             .map((post, i) => {
               return (

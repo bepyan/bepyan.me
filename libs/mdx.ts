@@ -1,9 +1,14 @@
 import { type DocumentTypes } from 'contentlayer/generated';
+import { compareDesc } from 'date-fns';
 
 import { isDev, isProd } from './utils';
 
 export const filterDraft = (doc: DocumentTypes) => {
   return isDev || (isProd && !doc.draft);
+};
+
+export const sortDateDesc = (a: DocumentTypes, b: DocumentTypes) => {
+  return compareDesc(new Date(a.date), new Date(b.date));
 };
 
 // table-of-content
