@@ -1,3 +1,13 @@
+import { type DocumentTypes } from 'contentlayer/generated';
+
+import { isDev, isProd } from './utils';
+
+export const filterDraft = (doc: DocumentTypes) => {
+  return isDev || (isProd && !doc.draft);
+};
+
+// table-of-content
+
 export type TOCSection = TOCSubSection & {
   subSections: TOCSubSection[];
 };

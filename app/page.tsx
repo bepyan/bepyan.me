@@ -7,6 +7,7 @@ import {
   NotionIcon,
   TwitterXIcon,
 } from '~/components/icons/logo-icon';
+import { filterDraft } from '~/libs/mdx';
 
 export default function Home() {
   return (
@@ -70,6 +71,7 @@ export default function Home() {
         <div className="w-80">
           <h2 className="mb-4 font-serif text-gray-11">나의 서재</h2>
           {allWritings
+            .filter(filterDraft)
             .sort((a, b) => compareDesc(new Date(a.date), new Date(b.date)))
             .slice(0, 3)
             .map((post, i) => {
@@ -94,6 +96,7 @@ export default function Home() {
         <div className="w-80">
           <h2 className="mb-4 font-serif text-gray-11">수첩</h2>
           {allNotes
+            .filter(filterDraft)
             .sort((a, b) => compareDesc(new Date(a.date), new Date(b.date)))
             .slice(0, 5)
             .map((post, i) => {

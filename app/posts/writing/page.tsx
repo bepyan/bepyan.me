@@ -4,6 +4,7 @@ import { type Metadata } from 'next';
 import Link from 'next/link';
 
 import NavHeader from '~/components/nav-header';
+import { filterDraft } from '~/libs/mdx';
 
 export const metadata: Metadata = {
   title: '나의 서재',
@@ -17,15 +18,17 @@ export default function WritingPage() {
         <h2 className="mb-16 font-serif font-semibold leading-7">나의 서재</h2>
         <div className="group">
           {Object.entries(
-            allWritings.reduce<{ [year: string]: Writing[] }>((ac, v) => {
-              const year = new Date(v.date).getFullYear();
-              if (!ac[year]) {
-                ac[year] = [];
-              }
+            allWritings
+              .filter(filterDraft)
+              .reduce<{ [year: string]: Writing[] }>((ac, v) => {
+                const year = new Date(v.date).getFullYear();
+                if (!ac[year]) {
+                  ac[year] = [];
+                }
 
-              ac[year].push(v);
-              return ac;
-            }, {}),
+                ac[year].push(v);
+                return ac;
+              }, {}),
           )
             .sort((a, b) => +b[0] - +a[0])
             .map(([year, postList], i) => {

@@ -4,6 +4,7 @@ import { type Metadata } from 'next';
 import Link from 'next/link';
 
 import NavHeader from '~/components/nav-header';
+import { filterDraft } from '~/libs/mdx';
 
 export const metadata: Metadata = {
   title: '수첩',
@@ -17,15 +18,17 @@ export default function NotePage() {
         <h2 className="mb-10 font-serif font-semibold leading-7">수첩</h2>
         <div className="group border-l pl-4">
           {Object.entries(
-            allNotes.reduce<{ [year: string]: Note[] }>((ac, v) => {
-              const year = new Date(v.date).getFullYear();
-              if (!ac[year]) {
-                ac[year] = [];
-              }
+            allNotes
+              .filter(filterDraft)
+              .reduce<{ [year: string]: Note[] }>((ac, v) => {
+                const year = new Date(v.date).getFullYear();
+                if (!ac[year]) {
+                  ac[year] = [];
+                }
 
-              ac[year].push(v);
-              return ac;
-            }, {}),
+                ac[year].push(v);
+                return ac;
+              }, {}),
           )
             .sort((a, b) => +b[0] - +a[0])
             .map(([year, postList], i, years) => {
